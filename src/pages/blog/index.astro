@@ -1,10 +1,10 @@
 ---
 import BaseHead from '../../components/Base/BaseHead.astro';
-import Header from '../../components/Base/BaseHeader.astro';
-import Footer from '../../components/Base/BaseFooter.astro';
+import Footer from '../../components/Base/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/Base/FormattedDate.astro';
+import NavBar from '../../components/Base/NavBar.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -15,96 +15,40 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		
 	</head>
 	<body>
-		<Header />
+		<NavBar />
 		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
+			<section class="py-10 bg-white sm:py-16 lg:py-24">
+				<div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+					<div class="max-w-2xl mx-auto text-center">
+						<h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Latest from blog</h2>
+						<p class="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
+					</div>
+			
+					<div class="grid max-w-md grid-cols-1 mx-auto mt-12 lg:max-w-full lg:mt-16 lg:grid-cols-3 gap-x-16 gap-y-12">
+						{
+							posts.map((post) => (
+						<div>
+							<a href={`/blog/${post.slug}/`} title="" class="block aspect-w-4 aspect-h-3">
+								<img class="object-cover w-full h-full" src={post.data.heroImage} alt="" />
+							</a>
+							<span class="inline-flex px-4 py-2 text-xs font-semibold tracking-widest uppercase rounded-full text-rose-500 bg-rose-100 mt-9"> Technology </span>
+							<p class="mt-6 text-xl font-semibold">
+								<a href={`/blog/${post.slug}/`} title="" class="text-black"> {post.data.title} </a>
+							</p>
+							<p class="mt-4 text-gray-600">{post.data.description}</p>
+							<div class="h-0 mt-6 mb-4 border-t-2 border-gray-200 border-dashed"></div>
+							<span class="block text-sm font-bold tracking-widest text-gray-500 uppercase"> <FormattedDate date={post.data.pubDate} /> </span>
+						</div>
 						))
 					}
-				</ul>
+						
+					</div>
+				</div>
 			</section>
+			
 		</main>
 		<Footer />
 	</body>

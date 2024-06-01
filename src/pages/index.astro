@@ -1,23 +1,11 @@
 ---
 import BaseSite from '../layouts/BaseSite.astro';
 import Slider from '../components/Home/Slider.jsx';
+import Icons from '../components/Home/Icons.astro'
+import Sobre from '../components/Home/Sobre.astro'
 ---
 <BaseSite title="Base site Aveme" description="Base de site com slider em astro com Bun">
+		<Sobre />
 		<Slider client:idle/>
-		<h1>🧑‍🚀 Projeto Base Aveme</h1>
-		<p>Here are a few ideas on how to get started with the template:</p>
-		<ul>
-			<li>Astro Framework + Bun</code></li>
-			<li>Swiper</code></li>
-			<li>Tailwind Css</li>
-			<li>React Icons</li>
-			
-		</ul>
-		<p>
-			Este projeto base foi desenvolvido para auxiliar no início de um site institucional comum. Ele oferece um ponto de partida com um slider, opção de React e TypeScript, o que é bastante útil e pode ser utilizado como base para o desenvolvimento de qualquer projeto web.
-		</p>
-		<p>
-			</a> by <a href="https://github.com/viniciusmpereira">Vinicius Pereira</a>.
-		</p>
-
+		<Icons />
 </BaseSite>

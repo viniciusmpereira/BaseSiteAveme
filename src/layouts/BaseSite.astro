@@ -1,19 +1,23 @@
 ---
 import BaseHead from '../components/Base/BaseHead.astro';
-import Header from '../components/Base/BaseHeader.astro';
-import Footer from '../components/Base/BaseFooter.astro';
+import Footer from '../components/Base/Footer.astro';
 import tailwind from '@astrojs/tailwind';
 import react from "@astrojs/react";
 const {title, description} = Astro.props;
+import NavBar from '../components/Base/NavBar.astro';
+import '../styles/global.css';
 ---
 
 <!doctype html>
 <html lang="pt-BR">
 	<head>
 		<BaseHead title={title} description={description} />
+		<script type="module" src="node_modules/htmx.org/dist/htmx.js"></script>
+		<script is:inline src="/js/flowbite.min.js"></script>
+		<style ></style>
 	</head>
-	<body class="z-0">
-		<Header/>
+	<body>
+		<NavBar />
 		<main>
 			<slot />
 		</main>	
