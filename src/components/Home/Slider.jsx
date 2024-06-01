@@ -1,7 +1,7 @@
 import React from "react";
 import { register } from 'swiper/element/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ChamadaButtons from "../Base/BaseChamadaButton";
+import BaseChamadaButton from "../BaseChamadaButton";
 
 
 register();
@@ -37,7 +37,7 @@ export default function App() {
                             {item.title && <h2 className="text-4xl font-bold">{item.title}</h2>}
                             {item.description && <p className="text-lg mt-2">{item.description}</p>}
                             <spam className="pt-5">
-                            <ChamadaButtons />
+                            <BaseChamadaButton />
                             </spam>
                         </div>
                     </div>

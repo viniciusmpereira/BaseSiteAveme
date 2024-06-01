@@ -1,10 +1,10 @@
 ---
-import BaseHead from '../components/Base/BaseHead.astro';
-import Footer from '../components/Base/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 import tailwind from '@astrojs/tailwind';
 import react from "@astrojs/react";
 const {title, description} = Astro.props;
-import NavBar from '../components/Base/NavBar.astro';
 import '../styles/global.css';
 ---
 
@@ -17,7 +17,7 @@ import '../styles/global.css';
 		<style ></style>
 	</head>
 	<body>
-		<NavBar />
+		<Header />
 		<main>
 			<slot />
 		</main>	
