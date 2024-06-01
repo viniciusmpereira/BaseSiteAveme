@@ -12,7 +12,9 @@ Este projeto base foi desenvolvido para auxiliar no início de um site instituci
 Comece com:
 npm create astro@latest -- --template viniciusmpereira/BaseSiteAveme
 
-npm install
+npm rum dev
+
+![alt text](https://painel.aveme.com.br/npm-install.png)
 
 
 by Vinicius Pereira.
