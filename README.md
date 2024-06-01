@@ -14,7 +14,7 @@ npm create astro@latest -- --template viniciusmpereira/BaseSiteAveme
 
 npm rum dev
 
-![alt text](https://painel.aveme.com.br/npm-install.png)
+![alt text](https://painel.aveme.com.br/media/npm-install.png)
 
 
 by Vinicius Pereira.
