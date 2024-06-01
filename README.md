@@ -1,7 +1,7 @@
 # Projeto Base de Site institucional
 
 ```sh
-npm create astro@latest -- --template blog
+npm create astro@latest -- --template viniciusmpereira/BaseSiteAveme
 ```
 
 Veja o modelo online:
